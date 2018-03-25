@@ -24,6 +24,7 @@ app.set("view engine", "hbs");
 require('./controllers/recipeController.js')(app);
 // Start our server so that it can begin listening to client requests.
 // 
+
 db.sequelize.sync().then(function () {
     app.listen(PORT, function () {
         console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
