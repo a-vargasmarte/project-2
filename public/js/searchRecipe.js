@@ -33,11 +33,11 @@ $(document).ready(function () {
 
 
 
-var user;
-var ingredient = [];
-var calories = [];
-var diet = [];
-var health = [];
+// var user;
+// var ingredient = [];
+// var calories = [];
+// var diet = [];
+// var health = [];
 
 // $(function () {
 // function getFoodInfo(WhatTheCallerSaysTheFoodIs) {

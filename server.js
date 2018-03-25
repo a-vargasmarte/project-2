@@ -18,8 +18,8 @@ app.use(bodyParser.json());
 // Set Handlebars.
 const exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+app.engine("hbs", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "hbs");
 // app.use(routes);
 require('./controllers/recipeController.js')(app);
 // Start our server so that it can begin listening to client requests.
