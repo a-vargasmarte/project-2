@@ -10,6 +10,53 @@ $(document).ready(function () {
     });
 });
 
+
+let isModalShowing = false;
+const loginModal = $("#login-modal");
+let userName;
+let userId;
+
+// Sets a listener for closing the modal and resetting parameters
+$(".close").on("click", function(){
+    $(".name-input").empty();
+    $(".id-input").empty();
+    loginModal.attr("class", "modal fade out");
+    loginModal.attr("style", "display: none");
+    isModalShowing = false;
+});
+
+$(".submit").on('click', function(event) {
+    userName = $(".name-input").val().trim();
+    userPw = $(".pw-input").val().trim();
+    $.ajax({
+        url: `/api/nutriModel/` + userName,
+        method: "GET"
+    }).done(function (response) {
+        loginModal.attr("class", "modal fade out");
+        loginModal.attr("style", "display: none");
+        isModalShowing = false;
+        //dynamically creates a display of the user's data
+        response.forEach(element => {
+            var row = $("<div>");
+            row.addClass("patient-data");
+            row.append("<p> Name: " + element.patient_name + "</p>");
+            var recipeLink = $(`<a>`);
+            recipeLink.attr({
+                "href": element.fav_recipe,
+                "target": "_blank"});
+            recipeLink.text("This Recipe");
+            var fav = $("<p> Favorite Recipe: " + "</p>");
+            fav.append(recipeLink);
+            row.append(fav);
+            row.append("<p> Health Concerns: " + element.risk_factor + "</p>");
+            row.append("<p> Dietary Recommendations: " + element.diet_option + "</p>");
+            row.append("<p> Dietary Restrictions: " + element.diet_restriction + "</p>" + "<br>");
+            $(".patient-info").append(row);
+        });
+    });
+});
+
+
 $(document).on('click', ".ingredient-1", function (event) {
     alert('click!');
     event.preventDefault();
