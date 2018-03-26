@@ -22,6 +22,16 @@ module.exports = function (app) {
         })
     });
 
+    app.get("/api/nutriModel/:id", function (req, res) {
+        db.nutriModel.findAll({
+            where: {id: req.params.id}
+        })
+        .then(nutriModel => {
+            console.log(nutriModel.map(x => x.dataValues));
+            res.send(nutriModel.map(x => x.dataValues));
+        })
+    });
+
 
 
     app.post("/api/patient", function (req, res) {

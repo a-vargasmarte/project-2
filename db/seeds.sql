@@ -1,2 +1,2 @@
 -- Insert a set of records.
-INSERT INTO nutrimodels (patient_name, fav_recipe, diet, health) VALUES ('John Doe', "http://thepioneerwoman.com/cooking/2013/01/salad-tacos/", "Low-sodium", "gluten-free");
+INSERT INTO nutrimodels (patient_name, fav_recipe, diet_option, risk_factor, diet_restriction) VALUES ('John Doe', "http://thepioneerwoman.com/cooking/2013/01/salad-tacos/", "Low-sodium", "high cholesterol", "gluten-free");

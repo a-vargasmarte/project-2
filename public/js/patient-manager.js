@@ -61,7 +61,6 @@ $(document).ready(function () {
     }
 
 
-
     function getPatients() {
         $.get("/api/patient", function (data) {
             var rowsToAdd = [];
@@ -89,6 +88,44 @@ $(document).ready(function () {
         patientContainer.append(alertDiv);
     }
 
+    let isModalShowing = false;
+    const loginModal = $("#login-modal");
+    let userName;
+    let userId;
+
+    // Sets a listener for closing the modal and resetting parameters
+    $(".close").on("click", function(){
+        $(".name-input").empty();
+        $(".id-input").empty();
+        loginModal.attr("class", "modal fade out");
+        loginModal.attr("style", "display: none");
+        isModalShowing = false;
+    });
+    
+    $(".submit").on('click', function(event) {
+        userName = $(".name-input").val().trim();
+        userId = $(".id-input").val().trim();
+        $.ajax({
+            url: `/api/nutriModel/` + userId,
+            method: "GET"
+        }).done(function (response) {
+            loginModal.attr("class", "modal fade out");
+            loginModal.attr("style", "display: none");
+            isModalShowing = false;
+            //dynamically creates a display of the user's data
+            response.forEach(element => {
+                var row = $("<div>");
+                row.addClass("patient-data");
+                row.append("<p> Name: " + element.patient_name + "</p>");
+                row.append("<p> Favorite Recipe: " + "<a href= " + element.fav_recipe + ">" + "This recipe" + "</a>" + "</p>");
+                row.append("<p> Health Concerns: " + element.risk_factor + "</p>");
+                row.append("<p> Dietary Recommendations: " + element.diet_option + "</p>");
+                row.append("<p> Dietary Restrictions: " + element.diet_restrictions + "</p>" + "<br>");
+                $(".patient-info").append(row);
+            });
+        });
+    });
+
 
 });
 
@@ -98,17 +135,11 @@ $(document).ready(function () {
         //         method: "GET"
         //     }).done(function (response) {
         //         console.log(response.hits[1]);
-
         //         for (var i = 0; i < response.hits.length; i++) {
-
         //             var row = $("<div>");
         //             row.addClass("recipe");
         //             row.append("<p>" + response.hits[i].recipe.label + "</p>");
         //             row.append("<a href= " + response.hits[i].recipe.url + ">" + "Learn More" + "</a>");
-
-
         //             $("#recipe-area").prepend(row);
-
         //         }
-
         //     });

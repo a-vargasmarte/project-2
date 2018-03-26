@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
         risk_factor: {
             type: DataTypes.STRING,
         },
-        health: {
+        diet_restriction: {
             type: DataTypes.STRING,
         },
         createdAt: {
