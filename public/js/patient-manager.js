@@ -53,6 +53,10 @@ $(document).ready(function () {
         var newDiv = $("<div>");
         newDiv.data("patient", patientData);
         newDiv.append("<div>" + patientData.patient_name + "</div>");
+        newDiv.append("<div>" + patientData.risk_factor + "</div>");
+        newDiv.append("<div>" + patientData.diet_restiction + "</div>");
+        newDiv.append("<br>");
+
         return newDiv;
     }
 
@@ -69,7 +73,6 @@ $(document).ready(function () {
     }
 
     function renderPatients(rows) {
-        patientContainer.children(".alert").remove();
         if (rows.length) {
             console.log(rows);
             patientList.prepend(rows);
