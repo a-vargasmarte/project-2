@@ -25,8 +25,6 @@ $(document).ready(function () {
                 var recipeLink = $(`<a>`);
                 recipeLink.attr("href", response.hits[i].recipe.url);
                 recipeLink.text("Get Recipe");
-                var saveButton = $('<button type=`btn btn default`>');
-                saveButton.text("Save This!");
                 row.append(saveButton);
                 row.append(img);
                 row.append("<p>" + response.hits[i].recipe.label + "</p>");

@@ -133,9 +133,6 @@ $(document).ready(function () {
         });
     });
 
-    $("#save-this").on('click', function(event){
-        character = event.currentTarget.id;
-    })
 
 
 });
