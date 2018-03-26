@@ -20,10 +20,13 @@ $(document).ready(function () {
 
             for (var i = 0; i < response.hits.length; i++) {
                 console.log(response.hits[i])
-                var row = $("<div>");
-                row.addClass("recipe");
+                var row = $("<div class='recipe'>");
+                var img = $("<img class='img responsive'>");
+                var imgSrc = response.hits[i].recipe.image;
+                img.attr("src", imgSrc)
+                row.append(img);
                 row.append("<p>" + response.hits[i].recipe.label + "</p>");
-                row.append("<a href= " + response.hits[i].recipe.url + ">" + "Learn More" + "</a>");
+                row.append("<a href=" + response.hits[i].recipe.url + ">" + "Learn More" + "</a>");
 
 
                 $("#recipe-area").prepend(row);
