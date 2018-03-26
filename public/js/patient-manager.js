@@ -32,7 +32,7 @@ $(document).ready(function () {
             fav_recipe: "",
             diet_option: dietOption,
             risk_factor: riskOption,
-            diet_restiction: dietRestriction,
+            diet_restriction: dietRestriction,
 
         });
     }
@@ -54,7 +54,7 @@ $(document).ready(function () {
         newDiv.data("patient", patientData);
         newDiv.append("<div>" + patientData.patient_name + "</div>");
         newDiv.append("<div>" + patientData.risk_factor + "</div>");
-        newDiv.append("<div>" + patientData.diet_restiction + "</div>");
+        newDiv.append("<div>" + patientData.diet_restriction + "</div>");
         newDiv.append("<br>");
 
         return newDiv;
@@ -104,9 +104,9 @@ $(document).ready(function () {
     
     $(".submit").on('click', function(event) {
         userName = $(".name-input").val().trim();
-        userId = $(".id-input").val().trim();
+        userPw = $(".pw-input").val().trim();
         $.ajax({
-            url: `/api/nutriModel/` + userId,
+            url: `/api/nutriModel/` + userName,
             method: "GET"
         }).done(function (response) {
             loginModal.attr("class", "modal fade out");
@@ -117,14 +117,25 @@ $(document).ready(function () {
                 var row = $("<div>");
                 row.addClass("patient-data");
                 row.append("<p> Name: " + element.patient_name + "</p>");
-                row.append("<p> Favorite Recipe: " + "<a href= " + element.fav_recipe + ">" + "This recipe" + "</a>" + "</p>");
+                var recipeLink = $(`<a>`);
+                recipeLink.attr({
+                    "href": element.fav_recipe,
+                    "target": "_blank"});
+                recipeLink.text("This Recipe");
+                var fav = $("<p> Favorite Recipe: " + "</p>");
+                fav.append(recipeLink);
+                row.append(fav);
                 row.append("<p> Health Concerns: " + element.risk_factor + "</p>");
                 row.append("<p> Dietary Recommendations: " + element.diet_option + "</p>");
-                row.append("<p> Dietary Restrictions: " + element.diet_restrictions + "</p>" + "<br>");
+                row.append("<p> Dietary Restrictions: " + element.diet_restriction + "</p>" + "<br>");
                 $(".patient-info").append(row);
             });
         });
     });
+
+    $("#save-this").on('click', function(event){
+        character = event.currentTarget.id;
+    })
 
 
 });

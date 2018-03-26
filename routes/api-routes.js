@@ -22,9 +22,9 @@ module.exports = function (app) {
         })
     });
 
-    app.get("/api/nutriModel/:id", function (req, res) {
+    app.get("/api/nutriModel/:patient_name", function (req, res) {
         db.nutriModel.findAll({
-            where: {id: req.params.id}
+            where: {patient_name: req.params.patient_name}
         })
         .then(nutriModel => {
             console.log(nutriModel.map(x => x.dataValues));

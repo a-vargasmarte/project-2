@@ -11,6 +11,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
         },
 
+        password: {
+            type: DataTypes.STRING,
+        },
+
         fav_recipe: {
             type: DataTypes.STRING,
         },
