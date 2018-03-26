@@ -26,20 +26,53 @@
                 <br>
                 <form id="patient-input">
                     <div class="form-group">
-                        <label for="title">Patient Name:</label>
-                        <input placeholder="Post Title" type="text" class="form-control" id="title">
-                        <br />
-                        <label for="title">Risk Factor:</label>
-                        <input placeholder="CHANGE TO DROPDOWN" type="text" class="form-control" id="title">
+                        <label for="patient-name">Patient Name:</label>
+                        <input placeholder="Post Title" type="text" class="form-control" id="patient-name">
                         <br>
-                        <label for="title">Diet Restriction:</label>
-                        <input placeholder="CHANGE TO DROPDOWN" type="text" class="form-control" id="title">
+                        <label for="risk-factor">Risk Factor:</label>
+                        <select class="form-control form-control-lg" id="risk-factor">
+                            <option class="risk-option">Healthy</option>
+                            <option class="risk-option">High Blood Pressure</option>
+                            <option class="risk-option">High Cholesterol</option>
+                            <option class="risk-option">Diabetes</option>
+                            <option class="risk-option">Obesity</option>
+                            <option class="risk-option">Malnourishment</option>
+                        </select>
+                        <br>
+                        <label for="risk-factor">Diet Recommendation:</label>
+                        <select class="form-control form-control-lg" id="diet-factor">
+                            <option class="diet-option">Balanced</option>
+                            <option class="diet-option">High-Fiber</option>
+                            <option class="diet-option">High-Protein</option>
+                            <option class="diet-option">Low-Carb</option>
+                            <option class="diet-option">Low-Fat</option>
+                            <option class="diet-option">Low-Sodium</option>
+                        </select>
+                        <br>
+                        <label for="diet-restriction">Diet Restriction:</label>
+                        <select class="form-control form-control-lg" id="diet-restriction">
+                            <option class="restrict-option">Crustacean-Free</option>
+                            <option class="restrict-option">Dairy-Free</option>
+                            <option class="restrict-option">Kosher</option>
+                            <option class="restrict-option">Gluten-Free</option>
+                            <option class="restrict-option">Low-Sugar</option>
+                            <option class="restrict-option">Paleo</option>
+                            <option class="restrict-option">Peanut-free</option>
+                            <option class="restrict-option">Pescatarian</option>
+                            <option class="restrict-option">Vegan</option>
+                        </select>
                         <br />
                         <a href="api/patient">
                             <button class="add-patient">Add New Patient</button>
                         </a>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="patient-container">
+                </div>
             </div>
         </div>
     </div>

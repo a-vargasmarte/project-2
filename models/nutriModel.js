@@ -14,7 +14,11 @@ module.exports = function (sequelize, DataTypes) {
         fav_recipe: {
             type: DataTypes.STRING,
         },
-        diet: {
+
+        diet_option: {
+            type: DataTypes.STRING,
+        },
+        risk_factor: {
             type: DataTypes.STRING,
         },
         health: {

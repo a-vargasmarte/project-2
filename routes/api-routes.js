@@ -1,5 +1,5 @@
 var path = require("path");
-const db = require("../models")
+var db = require("../models");
 
 module.exports = function (app) {
     app.get("/", function (req, res) {
@@ -20,6 +20,24 @@ module.exports = function (app) {
             console.log(nutriModel.map(x => x.dataValues));
             res.send(nutriModel.map(x => x.dataValues));
         })
+    });
+
+
+
+    app.post("/api/patient", function (req, res) {
+        // Create an Author with the data available to us in req.body
+        console.log("adding to the database");
+        console.log(req.body);
+        db.nutriModel.create(req.body).then(function (dbPatients) {
+            res.json(dbPatients);
+        });
+    });
+
+    app.get("/api/patient", function (req, res) {
+        console.log("finding all");
+        db.nutriModel.findAll({}).then(function (dbPatients) {
+            res.json(dbPatients);
+        });
     });
 
 };
