@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 // app.set("view engine", "hbs");
 // // app.use(routes);
 // require('./controllers/recipeController.js')(app);
-// require("./routes/html-routes")(app);
+require("./routes/html-routes")(app);
 require("./routes/api-routes")(app);
 // Start our server so that it can begin listening to client requests.
 // 

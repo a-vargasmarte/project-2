@@ -4,28 +4,28 @@
 
 // // Dependencies
 // // =============================================================
-// var path = require("path");
+var path = require("path");
 
 // // Routes
 // // =============================================================
-// module.exports = function (app) {
+module.exports = function (app) {
 
 //     // Each of the below routes just handles the HTML page that the user gets sent to.
 
 //     // index route loads view.html
 
-//     // // cms route loads cms.html
-//     // app.get("/cms", function (req, res) {
-//     //     res.sendFile(path.join(__dirname, "../public/cms.html"));
-//     // });
+    // admin route loads admin.html
+   app.get("/admin", function (req, res) {
+      res.sendFile(path.join(__dirname, "../public/patient-manager.html"));
+    });
 
-//     // // blog route loads blog.html
-//     // app.get("/blog", function (req, res) {
-//     //     res.sendFile(path.join(__dirname, "../public/blog.html"));
-//     // });
+//    recipe route loads recipes.html
+    app.get("/recipes", function (req, res) {
+      res.sendFile(path.join(__dirname, "../public/recipes.html"));
+    });
 
-//     // app.get("/authors", function (req, res) {
-//     //     res.sendFile(path.join(__dirname, "../public/author-manager.html"));
-//     // });
+   app.get("/patient", function (req, res) {
+          res.sendFile(path.join(__dirname, "../public/patient.html"));
+      });
 
-// };
+};
