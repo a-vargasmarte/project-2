@@ -95,18 +95,20 @@ $(document).on('click', ".ingredient-1", function (event) {
             addFavBttn.addClass("btn btn default fav-this");
             addFavBttn.attr("id", saveLink);
             addFavBttn.text("Fave This!");
-            row.append(addFavBttn);
+            
 
             // make function
             var addSaveBttn = $("<a>");
             addSaveBttn.addClass("btn btn default save-this");
             addSaveBttn.attr("id", saveLink);
             addSaveBttn.text("Save This!");
-            row.append(addSaveBttn);
+            
 
 
             row.append(img);
             row.append("<p>" + response.hits[i].recipe.label + "</p>");
+            row.append(addFavBttn);
+            row.append(addSaveBttn);
             row.append(recipeLink);
             $("#recipe-area").prepend(row);
         }
