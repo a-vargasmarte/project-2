@@ -12,13 +12,7 @@ $(document).ready(function () {
         riskOption = $("#risk-factor").val().toLowerCase().trim();
         dietOption = $("#diet-factor").val().toLowerCase().trim();
         dietRestriction = $("#diet-restriction").val().toLowerCase().trim();
-        console.log(patientName);
-        console.log(riskOption);
-        console.log(dietOption);
-        console.log(dietRestriction);
-
         addNewPatient();
-
     });
 
 
@@ -26,14 +20,12 @@ $(document).ready(function () {
         if (!patientName) {
             return;
         }
-
         createPatient({
             patient_name: patientName,
             fav_recipe: "",
             diet_option: dietOption,
             risk_factor: riskOption,
             diet_restriction: dietRestriction,
-
         });
     }
 
@@ -87,9 +79,6 @@ $(document).ready(function () {
         alertDiv.text("You must create a Patient before you can create a Post.");
         patientContainer.append(alertDiv);
     }
-
-
-
 });
 
 
