@@ -14,7 +14,7 @@ $(document).ready(function () {
 const loginModal = $("#login-modal");
 let isModalShowing = false;
 let userName;
-let userId;
+let userPw;
 let thisId;
 let riskOption;
 let dietOption;
@@ -109,41 +109,33 @@ $(document).on('click', ".ingredient-1", function (event) {
             row.append("<p>" + response.hits[i].recipe.label + "</p>");
             row.append(recipeLink);
             $("#recipe-area").prepend(row);
-
-
         }
+
         $(".fav-this").on('click', function (event) {
             uri = event.currentTarget.id;
             console.log(uri);
             console.log(thisId);
-            alert("poopoo");
             var id = thisId;
             $.ajax({
                 url: "api/patient/fav-recipe/" + id,
                 method: "PUT",
                 data: { fav_recipe: uri }
-
-
             }).done(function (response) {
-                console.log("got response biatch");
                 console.log(response);
             });
 
         });
+
         $(".save-this").on('click', function (event) {
             uri = event.currentTarget.id;
             console.log(uri);
             console.log(thisId);
-            alert("poopoo");
             var id = thisId;
             $.ajax({
                 url: "api/patient/save-recipe/" + id,
                 method: "POST",
                 data: { save_recipe: uri }
-
-
             }).done(function (response) {
-                console.log("got response biatch");
                 console.log(response);
             });
         });
